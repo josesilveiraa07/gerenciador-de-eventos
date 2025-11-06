@@ -6,4 +6,22 @@ public class Evento
   private string descricao;
   private DateTime data;
   private CategoriaEvento categoriaEvento;
+  private int capacidadeMaxima;
+  private StatusEvento status;
+  private string local;
+  private DateTime dataHoraInicio;
+  private DateTime dataHoraFim;
+
+  public Evento(string descricao, DateTime data, CategoriaEvento categoriaEvento, int capacidadeMaxima, StatusEvento status, string local, DateTime dataHoraInicio, DateTime dataHoraFim)
+  {
+    this.id = new Random().Next(1, 10000);
+    this.descricao = descricao;
+    this.data = data;
+    this.categoriaEvento = categoriaEvento;
+    this.capacidadeMaxima = capacidadeMaxima;
+    this.status = status;
+    this.local = local;
+    this.dataHoraInicio = dataHoraInicio;
+    this.dataHoraFim = dataHoraFim;
+  }
 }
