@@ -24,4 +24,24 @@ public class Evento
     this.dataHoraInicio = dataHoraInicio;
     this.dataHoraFim = dataHoraFim;
   }
+
+  public int GetId()
+  {
+    return id;
+  }
+
+  public DateTime GetData()
+  {
+    return data;
+  }
+
+  public CategoriaEvento GetCategoriaEvento()
+  {
+    return categoriaEvento;
+  }
+
+  public StatusEvento GetStatus()
+  {
+    return status;
+  }
 }
