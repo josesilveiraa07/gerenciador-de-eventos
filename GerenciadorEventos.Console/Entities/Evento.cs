@@ -44,4 +44,14 @@ public class Evento
   {
     return status;
   }
+
+  public int GetCapacidadeMaxima()
+  {
+    return capacidadeMaxima;
+  }
+
+  public string GetDescricao()
+  {
+    return descricao;
+  }
 }
