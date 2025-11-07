@@ -35,4 +35,14 @@ public class EventosService
 
     return estaDisponivel;
   }
+
+  public List<Evento> ObterTodosEventos()
+  {
+    return eventos;
+  }
+
+  public int ObterQuantidadeEventos()
+  {
+    return eventos.Count;
+  }
 }

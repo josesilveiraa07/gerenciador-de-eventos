@@ -21,4 +21,9 @@ public class StatusEvento
       _ => throw new ArgumentException("Invalid status value")
     };
   }
+
+  public override string ToString()
+  {
+    return value;
+  }
 }
