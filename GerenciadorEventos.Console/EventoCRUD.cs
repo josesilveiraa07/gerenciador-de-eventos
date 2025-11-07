@@ -13,7 +13,6 @@ public class EventoCRUD
   private Tela tela;
 
   // Variáveis temporárias para armazenar os dados do evento
-  private int eventoId;
   private string descricao = "";
   private DateTime data;
   private CategoriaEvento? categoriaEvento;
@@ -204,12 +203,11 @@ public class EventoCRUD
       this.descricao = Console.ReadLine() ?? "";
 
       // Data
-      Console.SetCursorPosition(this.colunaDados, this.linhaDados + 2);
-      string? dataStr = Console.ReadLine();
-      this.data = DateTime.ParseExact(dataStr ?? "", "dd/MM/yyyy", null);
+      string dataStr = this.LerComDica(this.colunaDados, this.linhaDados + 2, "dd/MM/yyyy");
+      this.data = DateTime.ParseExact(dataStr, "dd/MM/yyyy", null);
 
       // Categoria
-      string categoriaStr = this.LerComDica(this.colunaDados, this.linhaDados + 3, "(Seminario/Workshop/Conferencia)");
+      string categoriaStr = this.LerComDica(this.colunaDados, this.linhaDados + 3, "Seminario/Workshop/Conferencia");
       this.categoriaEvento = CategoriaEvento.FromString(categoriaStr);
 
       // Capacidade Máxima
@@ -217,7 +215,7 @@ public class EventoCRUD
       this.capacidadeMaxima = int.Parse(Console.ReadLine() ?? "0");
 
       // Status
-      string statusStr = this.LerComDica(this.colunaDados, this.linhaDados + 5, "(Aberto/EmAndamento/Concluido)");
+      string statusStr = this.LerComDica(this.colunaDados, this.linhaDados + 5, "Aberto/EmAndamento/Concluido");
       this.status = StatusEvento.FromString(statusStr);
 
       // Local
@@ -225,14 +223,12 @@ public class EventoCRUD
       this.local = Console.ReadLine() ?? "";
 
       // Data/Hora Início
-      Console.SetCursorPosition(this.colunaDados, this.linhaDados + 7);
-      string? inicioStr = Console.ReadLine();
-      this.dataHoraInicio = DateTime.ParseExact(inicioStr ?? "", "dd/MM/yyyy HH:mm", null);
+      string inicioStr = this.LerComDica(this.colunaDados, this.linhaDados + 7, "dd/MM/yyyy HH:mm");
+      this.dataHoraInicio = DateTime.ParseExact(inicioStr, "dd/MM/yyyy HH:mm", null);
 
       // Data/Hora Fim
-      Console.SetCursorPosition(this.colunaDados, this.linhaDados + 8);
-      string? fimStr = Console.ReadLine();
-      this.dataHoraFim = DateTime.ParseExact(fimStr ?? "", "dd/MM/yyyy HH:mm", null);
+      string fimStr = this.LerComDica(this.colunaDados, this.linhaDados + 8, "dd/MM/yyyy HH:mm");
+      this.dataHoraFim = DateTime.ParseExact(fimStr, "dd/MM/yyyy HH:mm", null);
     }
     catch (Exception ex)
     {
