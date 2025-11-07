@@ -1,19 +1,12 @@
 public class Tela
 {
-  //
-  // propriedades
-  //
   private int largura;
   private int altura;
   private int colunaInicial;
   private int linhaInicial;
   private bool telaCheia;
 
-  //
-  // métodos
-  //
 
-  // Constutor usado para "full screen"
   public Tela()
   {
     this.largura = 80;
@@ -23,7 +16,6 @@ public class Tela
     this.telaCheia = true;
   }
 
-  // construtor usado para telas menores
   public Tela(int coluna, int linha, int largura, int altura)
   {
     this.largura = largura;
@@ -96,29 +88,22 @@ public class Tela
 
     this.ApagarArea(ci, li, cf, lf);
 
-    // desenha as linhas horizontais
     for (col = ci; col < cf; col++)
     {
-      // linha horizontal superior
       Console.SetCursorPosition(col, li);
       Console.Write("═");
-      // linha horizontal inferior
       Console.SetCursorPosition(col, lf);
       Console.Write("═");
     }
 
-    // desenha as linhas verticais
     for (lin = li; lin < lf; lin++)
     {
-      // desenha a linha vertical esquerda
       Console.SetCursorPosition(ci, lin);
       Console.Write("║");
-      // desenha a linha vertical direita
       Console.SetCursorPosition(cf, lin);
       Console.Write("║");
     }
 
-    // desenha os cantos
     Console.SetCursorPosition(ci, li);
     Console.Write("╔");
 
@@ -152,7 +137,6 @@ public class Tela
   {
     this.ApagarArea(this.colunaInicial + 1, this.linhaInicial + this.altura - 1, this.colunaInicial + this.largura - 1, this.linhaInicial + this.altura - 1);
 
-    // Truncar mensagem se for muito longa
     int maxLength = this.largura - 2;
     if (msg.Length > maxLength)
     {
@@ -160,7 +144,6 @@ public class Tela
     }
 
     int coluna = (this.largura - msg.Length) / 2;
-    // Garantir que a coluna nunca seja negativa
     if (coluna < 0) coluna = this.colunaInicial + 1;
     else coluna += this.colunaInicial;
 

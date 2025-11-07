@@ -1,8 +1,5 @@
 public class InscricaoCRUD
 {
-  //
-  // Propriedades
-  //
   private InscricoesService inscricoesService;
   private EventosService eventosService;
   private List<string> dados = new List<string>();
@@ -10,37 +7,28 @@ public class InscricaoCRUD
   private int larguraDados, colunaDados, linhaDados;
   private Tela tela;
 
-  // Variáveis temporárias para armazenar os dados da inscrição
   private string participante = "";
   private int eventoId;
   private DateTime dataInscricao;
   private DateTime dataReferencia;
 
 
-  //
-  // Métodos
-  //
   public InscricaoCRUD(Tela tela, InscricoesService inscricoesService, EventosService eventosService)
   {
-    // propriedades para o CRUD
     this.inscricoesService = inscricoesService;
     this.eventosService = eventosService;
 
-    // inicializa o vetor com as perguntas de inscrição
     this.dados.Add("Participante           : ");
     this.dados.Add("ID do Evento           : ");
     this.dados.Add("Data Inscrição (dd/MM/yyyy): ");
     this.dados.Add("Data Referência (dd/MM/yyyy): ");
 
-    // indica para InscricaoCRUD onde está o objeto tela
     this.tela = tela;
 
-    // define a posição e largura da janela
     this.coluna = 10;
     this.linha = 4;
     this.largura = 60;
 
-    // calcula a área dos dados
     this.larguraDados = this.largura - dados[0].Length - 2;
     this.colunaDados = this.coluna + dados[0].Length + 1;
     this.linhaDados = this.linha + 2;
@@ -81,16 +69,12 @@ public class InscricaoCRUD
   {
     string resp;
 
-    // Limpar a tela e preparar nova tela
     this.tela.PrepararTela("Registrar Inscrição");
 
-    // Primeiro, mostrar eventos disponíveis
     this.MostrarEventosDisponiveis();
 
-    // montar a janela do CRUD
     this.tela.MontarJanela("Dados da Inscrição", this.dados, this.coluna, this.linha + 12, this.largura);
 
-    // Entrar dados
     this.tela.MostrarMensagem("Digite os dados da inscrição");
     this.EntrarDados();
 
@@ -99,7 +83,6 @@ public class InscricaoCRUD
     {
       try
       {
-        // Buscar o evento
         List<Evento> eventos = this.eventosService.ObterTodosEventos();
         Evento? evento = eventos.FirstOrDefault(e => e.GetId() == this.eventoId);
 
@@ -110,7 +93,6 @@ public class InscricaoCRUD
           return;
         }
 
-        // Registrar através do service
         this.inscricoesService.RegistrarInscricao(
             this.participante,
             evento,
@@ -134,7 +116,6 @@ public class InscricaoCRUD
   {
     string input = "";
 
-    // Função auxiliar para mostrar a dica
     void MostrarDica()
     {
       Console.SetCursorPosition(coluna, linha);
@@ -144,7 +125,6 @@ public class InscricaoCRUD
       Console.SetCursorPosition(coluna, linha);
     }
 
-    // Função auxiliar para limpar a linha
     void LimparLinha()
     {
       Console.SetCursorPosition(coluna, linha);
@@ -152,20 +132,17 @@ public class InscricaoCRUD
       Console.SetCursorPosition(coluna, linha);
     }
 
-    // Mostra a dica inicialmente
     MostrarDica();
 
     while (true)
     {
       ConsoleKeyInfo tecla = Console.ReadKey(true);
 
-      // Enter finaliza a entrada
       if (tecla.Key == ConsoleKey.Enter)
       {
         break;
       }
 
-      // Backspace remove o último caractere
       if (tecla.Key == ConsoleKey.Backspace)
       {
         if (input.Length > 0)
@@ -173,7 +150,6 @@ public class InscricaoCRUD
           input = input.Substring(0, input.Length - 1);
           LimparLinha();
 
-          // Se ficou vazio, mostra a dica novamente
           if (input.Length == 0)
           {
             MostrarDica();
@@ -186,24 +162,20 @@ public class InscricaoCRUD
         continue;
       }
 
-      // Ignora teclas especiais
       if (char.IsControl(tecla.KeyChar))
       {
         continue;
       }
 
-      // Se for o primeiro caractere, limpa a dica
       if (input.Length == 0)
       {
         LimparLinha();
       }
 
-      // Adiciona o caractere
       input += tecla.KeyChar;
       Console.Write(tecla.KeyChar);
     }
 
-    // Limpa a dica se o usuário não digitou nada
     if (input.Length == 0)
     {
       LimparLinha();
@@ -217,20 +189,16 @@ public class InscricaoCRUD
   {
     try
     {
-      // Participante
       Console.SetCursorPosition(this.colunaDados, this.linhaDados + 12);
       this.participante = Console.ReadLine() ?? "";
 
-      // ID do Evento
       Console.SetCursorPosition(this.colunaDados, this.linhaDados + 13);
       string? eventoIdStr = Console.ReadLine();
       this.eventoId = int.Parse(eventoIdStr ?? "0");
 
-      // Data Inscrição
       string dataInscricaoStr = this.LerComDica(this.colunaDados, this.linhaDados + 14, "dd/MM/yyyy");
       this.dataInscricao = DateTime.ParseExact(dataInscricaoStr, "dd/MM/yyyy", null);
 
-      // Data Referência
       string dataReferenciaStr = this.LerComDica(this.colunaDados, this.linhaDados + 15, "dd/MM/yyyy");
       this.dataReferencia = DateTime.ParseExact(dataReferenciaStr, "dd/MM/yyyy", null);
     }
@@ -255,7 +223,6 @@ public class InscricaoCRUD
     int linhaAtual = 4;
     int colunaInicial = 2;
 
-    // Cabeçalho
     Console.SetCursorPosition(colunaInicial, linhaAtual);
     Console.Write("Eventos Disponíveis:");
     linhaAtual += 2;
@@ -268,7 +235,6 @@ public class InscricaoCRUD
     Console.Write("─────────────────────────────────────────────────────────────────");
     linhaAtual++;
 
-    // Listagem dos eventos (máximo 5)
     int count = 0;
     foreach (var evento in eventos)
     {
@@ -302,7 +268,6 @@ public class InscricaoCRUD
     int linhaAtual = 4;
     int colunaInicial = 2;
 
-    // Cabeçalho
     Console.SetCursorPosition(colunaInicial, linhaAtual);
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
@@ -315,17 +280,15 @@ public class InscricaoCRUD
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
 
-    // Listagem das inscrições
     foreach (var inscricao in inscricoes)
     {
-      if (linhaAtual >= 22) // Limite da tela
+      if (linhaAtual >= 22)
       {
         this.tela.MostrarMensagem("Pressione uma tecla para ver mais inscrições...");
         Console.ReadKey();
         this.tela.PrepararTela("Lista de Inscrições");
         linhaAtual = 4;
 
-        // Redesenhar cabeçalho
         Console.SetCursorPosition(colunaInicial, linhaAtual);
         Console.Write("═══════════════════════════════════════════════════════════════════════════════");
         linhaAtual++;
@@ -387,7 +350,6 @@ public class InscricaoCRUD
     int linhaAtual = 4;
     int colunaInicial = 2;
 
-    // Cabeçalho
     Console.SetCursorPosition(colunaInicial, linhaAtual);
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
@@ -400,17 +362,15 @@ public class InscricaoCRUD
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
 
-    // Listagem da lista de espera
     foreach (var inscricao in listaEspera)
     {
-      if (linhaAtual >= 22) // Limite da tela
+      if (linhaAtual >= 22)
       {
         this.tela.MostrarMensagem("Pressione uma tecla para ver mais...");
         Console.ReadKey();
         this.tela.PrepararTela("Lista de Espera");
         linhaAtual = 4;
 
-        // Redesenhar cabeçalho
         Console.SetCursorPosition(colunaInicial, linhaAtual);
         Console.Write("═══════════════════════════════════════════════════════════════════════════════");
         linhaAtual++;
@@ -492,7 +452,6 @@ public class InscricaoCRUD
       return;
     }
 
-    // Exibir detalhes da inscrição
     int linhaAtual = 4;
     int colunaInicial = 10;
 

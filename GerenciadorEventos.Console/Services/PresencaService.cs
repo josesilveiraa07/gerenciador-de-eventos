@@ -4,7 +4,6 @@ public class PresencaService
 
   public bool RegistrarPresenca(Inscricao inscricao, DateTime horarioChegada)
   {
-    // RN-005: Validações obrigatórias
     if (inscricao == null)
     {
       Console.WriteLine("Erro: Participante cadastrado deve ser informado obrigatoriamente.");
@@ -17,7 +16,6 @@ public class PresencaService
       return false;
     }
 
-    // Verificar se presença não excede capacidade do evento
     Evento evento = inscricao.GetEvento();
     int presencasNoEvento = presencas.Count(p => p.GetInscricao().GetEvento().GetId() == evento.GetId());
 
@@ -27,7 +25,6 @@ public class PresencaService
       return false;
     }
 
-    // Verificar se já existe presença registrada para esta inscrição
     bool jaRegistrado = presencas.Any(p => p.GetInscricao().GetId() == inscricao.GetId());
     if (jaRegistrado)
     {
@@ -35,11 +32,9 @@ public class PresencaService
       return false;
     }
 
-    // Criar e adicionar presença
     Presenca novaPresenca = new Presenca(horarioChegada, inscricao);
     presencas.Add(novaPresenca);
 
-    // RN-006: Atualizar status imediatamente
     Console.WriteLine($"Presença registrada com sucesso para {inscricao.GetParticipante()}!");
     Console.WriteLine($"Horário de chegada: {horarioChegada.ToString("dd/MM/yyyy HH:mm")}");
     Console.WriteLine($"Total de presenças no evento: {presencasNoEvento + 1}/{evento.GetCapacidadeMaxima()}");

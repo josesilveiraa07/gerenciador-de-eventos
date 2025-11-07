@@ -1,8 +1,5 @@
 public class PresencaCRUD
 {
-  //
-  // Propriedades
-  //
   private PresencaService presencaService;
   private InscricoesService inscricoesService;
   private EventosService eventosService;
@@ -11,33 +8,25 @@ public class PresencaCRUD
   private int larguraDados, colunaDados, linhaDados;
   private Tela tela;
 
-  // Variáveis temporárias
   private int inscricaoId;
   private DateTime horarioChegada;
 
 
-  //
-  // Métodos
-  //
   public PresencaCRUD(Tela tela, PresencaService presencaService, InscricoesService inscricoesService, EventosService eventosService)
   {
     this.presencaService = presencaService;
     this.inscricoesService = inscricoesService;
     this.eventosService = eventosService;
 
-    // inicializa o vetor com as perguntas
     this.dados.Add("ID da Inscrição        : ");
     this.dados.Add("Horário Chegada (dd/MM/yyyy HH:mm): ");
 
-    // indica onde está o objeto tela
     this.tela = tela;
 
-    // define a posição e largura da janela
     this.coluna = 10;
     this.linha = 4;
     this.largura = 60;
 
-    // calcula a área dos dados
     this.larguraDados = this.largura - dados[0].Length - 2;
     this.colunaDados = this.coluna + dados[0].Length + 1;
     this.linhaDados = this.linha + 2;
@@ -78,16 +67,12 @@ public class PresencaCRUD
   {
     string resp;
 
-    // Limpar a tela e preparar nova tela
     this.tela.PrepararTela("Registrar Presença");
 
-    // Mostrar inscrições disponíveis
     this.MostrarInscricoesDisponiveis();
 
-    // montar a janela do CRUD
     this.tela.MontarJanela("Dados da Presença", this.dados, this.coluna, this.linha + 12, this.largura);
 
-    // Entrar dados
     this.tela.MostrarMensagem("Digite os dados da presença");
     this.EntrarDados();
 
@@ -96,7 +81,6 @@ public class PresencaCRUD
     {
       try
       {
-        // Buscar a inscrição
         List<Inscricao> inscricoes = this.inscricoesService.ListarInscricoes();
         Inscricao? inscricao = inscricoes.FirstOrDefault(i => i.GetId() == this.inscricaoId);
 
@@ -107,7 +91,6 @@ public class PresencaCRUD
           return;
         }
 
-        // Verificar se já tem presença registrada
         if (this.presencaService.VerificarPresencaRegistrada(inscricao.GetId()))
         {
           this.tela.MostrarMensagem("Erro: Presença já registrada para esta inscrição! Pressione uma tecla...");
@@ -115,7 +98,6 @@ public class PresencaCRUD
           return;
         }
 
-        // Registrar através do service
         bool sucesso = this.presencaService.RegistrarPresenca(inscricao, this.horarioChegada);
 
         this.tela.MostrarMensagem("Pressione uma tecla para continuar...");
@@ -207,12 +189,10 @@ public class PresencaCRUD
   {
     try
     {
-      // ID da Inscrição
       Console.SetCursorPosition(this.colunaDados, this.linhaDados + 12);
       string? inscricaoIdStr = Console.ReadLine();
       this.inscricaoId = int.Parse(inscricaoIdStr ?? "0");
 
-      // Horário de Chegada
       string horarioStr = this.LerComDica(this.colunaDados, this.linhaDados + 13, "dd/MM/yyyy HH:mm");
       this.horarioChegada = DateTime.ParseExact(horarioStr, "dd/MM/yyyy HH:mm", null);
     }
@@ -289,7 +269,6 @@ public class PresencaCRUD
     int linhaAtual = 4;
     int colunaInicial = 2;
 
-    // Cabeçalho
     Console.SetCursorPosition(colunaInicial, linhaAtual);
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
@@ -302,7 +281,6 @@ public class PresencaCRUD
     Console.Write("═══════════════════════════════════════════════════════════════════════════════");
     linhaAtual++;
 
-    // Listagem das presenças
     foreach (var presenca in presencas)
     {
       if (linhaAtual >= 22)
@@ -361,7 +339,6 @@ public class PresencaCRUD
   {
     this.tela.PrepararTela("Presenças por Evento");
 
-    // Mostrar eventos disponíveis
     List<Evento> eventos = this.eventosService.ObterTodosEventos();
 
     if (eventos.Count == 0)
@@ -461,7 +438,6 @@ public class PresencaCRUD
       return;
     }
 
-    // RN-005: Verificar se o evento está concluído
     Evento evento = presenca.GetInscricao().GetEvento();
     if (!evento.GetStatus().Equals(StatusEvento.Concluido))
     {
@@ -470,7 +446,6 @@ public class PresencaCRUD
       return;
     }
 
-    // Mostrar informações da presença
     int linhaAtual = 4;
     int colunaInicial = 10;
 
@@ -530,7 +505,6 @@ public class PresencaCRUD
       return;
     }
 
-    // Exibir detalhes da presença
     int linhaAtual = 4;
     int colunaInicial = 10;
 
