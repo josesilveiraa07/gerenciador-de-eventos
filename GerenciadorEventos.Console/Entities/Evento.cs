@@ -69,14 +69,4 @@ public class Evento
   {
     return dataHoraFim;
   }
-
-  public int GetCapacidadeMaxima()
-  {
-    return capacidadeMaxima;
-  }
-
-  public string GetDescricao()
-  {
-    return descricao;
-  }
 }

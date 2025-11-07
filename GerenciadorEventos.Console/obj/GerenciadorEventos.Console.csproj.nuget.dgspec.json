@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kaian\\Downloads\\gerenciador-de-eventos-atualizado (4)\\gerenciador-de-eventos\\GerenciadorEventos.Console\\GerenciadorEventos.Console.csproj": {}
+    "/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/GerenciadorEventos.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kaian\\Downloads\\gerenciador-de-eventos-atualizado (4)\\gerenciador-de-eventos\\GerenciadorEventos.Console\\GerenciadorEventos.Console.csproj": {
+    "/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/GerenciadorEventos.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kaian\\Downloads\\gerenciador-de-eventos-atualizado (4)\\gerenciador-de-eventos\\GerenciadorEventos.Console\\GerenciadorEventos.Console.csproj",
+        "projectUniqueName": "/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/GerenciadorEventos.Console.csproj",
         "projectName": "GerenciadorEventos.Console",
-        "projectPath": "C:\\Users\\kaian\\Downloads\\gerenciador-de-eventos-atualizado (4)\\gerenciador-de-eventos\\GerenciadorEventos.Console\\GerenciadorEventos.Console.csproj",
-        "packagesPath": "C:\\Users\\kaian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kaian\\Downloads\\gerenciador-de-eventos-atualizado (4)\\gerenciador-de-eventos\\GerenciadorEventos.Console\\obj\\",
+        "projectPath": "/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/GerenciadorEventos.Console.csproj",
+        "packagesPath": "/Users/josesilveira/.nuget/packages/",
+        "outputPath": "/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kaian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/josesilveira/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
