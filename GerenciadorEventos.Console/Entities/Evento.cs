@@ -30,6 +30,11 @@ public class Evento
     return id;
   }
 
+  public string GetDescricao()
+  {
+    return descricao;
+  }
+
   public DateTime GetData()
   {
     return data;
@@ -40,8 +45,28 @@ public class Evento
     return categoriaEvento;
   }
 
+  public int GetCapacidadeMaxima()
+  {
+    return capacidadeMaxima;
+  }
+
   public StatusEvento GetStatus()
   {
     return status;
+  }
+
+  public string GetLocal()
+  {
+    return local;
+  }
+
+  public DateTime GetDataHoraInicio()
+  {
+    return dataHoraInicio;
+  }
+
+  public DateTime GetDataHoraFim()
+  {
+    return dataHoraFim;
   }
 }

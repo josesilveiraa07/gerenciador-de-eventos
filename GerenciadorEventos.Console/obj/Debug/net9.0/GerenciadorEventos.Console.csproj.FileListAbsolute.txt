@@ -1,0 +1,15 @@
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/bin/Debug/net9.0/GerenciadorEventos.Console
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/bin/Debug/net9.0/GerenciadorEventos.Console.deps.json
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/bin/Debug/net9.0/GerenciadorEventos.Console.runtimeconfig.json
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/bin/Debug/net9.0/GerenciadorEventos.Console.dll
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/bin/Debug/net9.0/GerenciadorEventos.Console.pdb
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.GeneratedMSBuildEditorConfig.editorconfig
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.AssemblyInfoInputs.cache
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.AssemblyInfo.cs
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.csproj.CoreCompileInputs.cache
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.sourcelink.json
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.dll
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/refint/GerenciadorEventos.Console.dll
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.pdb
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/GerenciadorEventos.Console.genruntimeconfig.cache
+/Users/josesilveira/www/Faculdade/trabalho-poo/GerenciadorEventos/GerenciadorEventos.Console/obj/Debug/net9.0/ref/GerenciadorEventos.Console.dll

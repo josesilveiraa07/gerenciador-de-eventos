@@ -23,4 +23,9 @@ public class CategoriaEvento
             _ => throw new ArgumentException("Invalid categoria value")
         };
     }
+
+    public override string ToString()
+    {
+        return value;
+    }
 }
