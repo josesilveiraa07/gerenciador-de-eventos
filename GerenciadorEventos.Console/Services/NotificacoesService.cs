@@ -26,7 +26,7 @@ public class NotificacoesService
     {
       temAlertas = true;
       Console.ForegroundColor = ConsoleColor.Yellow;
-      Console.WriteLine($"⚠️  EVENTOS PRÓXIMOS ({eventosProximos.Count}):");
+      Console.WriteLine($" EVENTOS PRÓXIMOS ({eventosProximos.Count}):");
       Console.ResetColor();
       foreach (var evento in eventosProximos)
       {
@@ -42,7 +42,7 @@ public class NotificacoesService
     {
       temAlertas = true;
       Console.ForegroundColor = ConsoleColor.Cyan;
-      Console.WriteLine($"📋 INSCRIÇÕES PENDENTES ({inscricoesPendentes.Count}):");
+      Console.WriteLine($" INSCRIÇÕES PENDENTES ({inscricoesPendentes.Count}):");
       Console.ResetColor();
       foreach (var inscricao in inscricoesPendentes.Take(5))
       {
@@ -139,7 +139,7 @@ public class NotificacoesService
       totalInscricoes += inscricoesEvento.Count;
       totalPresencas += presencasEvento;
 
-      Console.WriteLine($"\n📅 {evento.GetDescricao()}");
+      Console.WriteLine($"\n {evento.GetDescricao()}");
       Console.WriteLine($"   Data: {evento.GetData().ToString("dd/MM/yyyy")} | Status: {evento.GetStatus()}");
       Console.WriteLine($"   Categoria: {evento.GetCategoriaEvento()} | Local: {evento.GetLocal()}");
       Console.WriteLine($"   Capacidade: {evento.GetCapacidadeMaxima()}");
@@ -154,7 +154,7 @@ public class NotificacoesService
     }
 
     Console.WriteLine("\n════════════════════════════════════════════════════════════════════════════");
-    Console.WriteLine("\n📊 RESUMO DO MÊS:");
+    Console.WriteLine("\n RESUMO DO MÊS:");
     Console.WriteLine($"   Total de Inscrições: {totalInscricoes}");
     Console.WriteLine($"   Total de Presenças: {totalPresencas}");
 
@@ -188,7 +188,7 @@ public class NotificacoesService
       return;
     }
 
-    Console.WriteLine("📈 MÉTRICAS GERAIS DO SISTEMA:\n");
+    Console.WriteLine(" MÉTRICAS GERAIS DO SISTEMA:\n");
     Console.WriteLine($"   Total de Eventos: {eventos.Count}");
     Console.WriteLine($"   Total de Inscrições: {todasInscricoes.Count}");
     Console.WriteLine($"   Total de Presenças: {todasPresencas.Count}");
@@ -200,7 +200,7 @@ public class NotificacoesService
     }
 
     Console.WriteLine("\n────────────────────────────────────────────────────────────────────────────");
-    Console.WriteLine("\n📊 ENGAJAMENTO POR CATEGORIA:\n");
+    Console.WriteLine("\n ENGAJAMENTO POR CATEGORIA:\n");
 
     var categorias = new[] { CategoriaEvento.Seminario, CategoriaEvento.Workshop, CategoriaEvento.Conferencia };
 
@@ -237,7 +237,7 @@ public class NotificacoesService
     }
 
     Console.WriteLine("────────────────────────────────────────────────────────────────────────────");
-    Console.WriteLine("\n🏆 TOP 5 EVENTOS COM MAIOR ENGAJAMENTO:\n");
+    Console.WriteLine("\n TOP 5 EVENTOS COM MAIOR ENGAJAMENTO:\n");
 
     var eventosComEngajamento = eventos.Select(e => new
     {
@@ -289,7 +289,7 @@ public class NotificacoesService
     {
       Console.WriteLine("────────────────────────────────────────────────────────────────────────────");
       Console.ForegroundColor = ConsoleColor.Red;
-      Console.WriteLine($"\n⚠️  ALERTAS - EVENTOS COM BAIXO ENGAJAMENTO (<50%):\n");
+      Console.WriteLine($"\n  ALERTAS - EVENTOS COM BAIXO ENGAJAMENTO (<50%):\n");
       Console.ResetColor();
 
       foreach (var item in eventosBaixoEngajamento)
